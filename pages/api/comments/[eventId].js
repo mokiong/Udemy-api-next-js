@@ -13,7 +13,8 @@ function handler(req, res) {
                     text.trim() === ''
             )
         ) {
-            return res.status(422).json({ message: 'Invalid input.' });
+            res.status(422).json({ message: 'Invalid input.' });
+            return;
         }
 
         const newComment = {
@@ -34,6 +35,7 @@ function handler(req, res) {
             { id: 'c1', name: 'Max', text: 'First comment' },
             { id: 'c2', name: 'manuel', text: '2nd comment' },
         ];
+        res.status(200).json({ comments: dummyList });
     }
 }
 
